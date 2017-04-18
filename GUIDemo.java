@@ -25,8 +25,8 @@ public class GUIDemo extends JFrame
         panel = new JPanel();
         biggerButton = new JButton("BIGGER");
         smallerButton = new JButton("SMALLER");
-        biggerButton.addActionListener(ae -> {setSize(getSize().width + 10, getSize().height + 10);} );
-        smallerButton.addActionListener(ae -> {setSize(getSize().width - 10, getSize().height - 10);} );
+        biggerButton.addActionListener(ae -> {setSize(getX() + 10, getY() + 10);} );
+        smallerButton.addActionListener(ae -> {setSize(getX() - 10, getY() - 10);} );
 
         add(panel);
         panel.add(biggerButton);
