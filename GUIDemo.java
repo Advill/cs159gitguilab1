@@ -1,8 +1,6 @@
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 /**
  * Minimal Java Swing application.
@@ -27,40 +25,14 @@ public class GUIDemo extends JFrame
         panel = new JPanel();
         biggerButton = new JButton("BIGGER");
         smallerButton = new JButton("SMALLER");
-        biggerButton.addActionListener(new ButtonHandler());
-        smallerButton.addActionListener(new ButtonHandler());
+        biggerButton.addActionListener(ae -> {setSize(getX() + 10, getY() + 10);} );
+        smallerButton.addActionListener(ae -> {setSize(getX() - 10, getY() - 10);} );
 
         add(panel);
         panel.add(biggerButton);
         panel.add(smallerButton);
 
         setVisible(true);
-    }
-
-    /**
-     * This inner class exists to handle button events. There are other ways
-     * this could have been done:
-     * 
-     * 1. GUIDemo could implement ActionListener itself. 
-     * 2. Anonymous inner classes could be used to hand the events.
-     */
-    private class ButtonHandler implements ActionListener
-    {
-
-        public void actionPerformed(ActionEvent e)
-        {
-            Dimension size = getSize();
-
-            if (e.getSource().equals(biggerButton))
-            {
-                setSize(size.width + 10, size.height + 10);
-            }
-            else
-            {
-                setSize(size.width - 10, size.height - 10);
-            }
-
-        }
     }
 
     /**
